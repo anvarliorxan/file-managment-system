@@ -1,33 +1,17 @@
 Django
 djangorestframework
-pytz
-sqlparse
-typing-extensions
 djangorestframework-simplejwt
 pillow
-django-mptt
-elasticsearch==7.17
-django-elasticsearch-dsl
-django-elasticsearch-dsl-drf
-twilio
-random2
-pylint # 'pep 8 w191 indentation contains tabs' - the error has been resolved in TimeStampedModel
-django-stubs # there was an error -- "unresolved attribute reference 'objects' for class Token"
 django-filter
-WeasyPrint
-sentry-sdk[django]
 python-dotenv
 django-environ
 drf-yasg
-python-dotenv
 django-environ
 celery
 redis
 django-redis
-django-admin-sortable2
-geopy
-itsdangerous
 gunicorn
 psycopg2-binary
-django_celery_beat
 django-celery-beat
+requests
+itsdangerous

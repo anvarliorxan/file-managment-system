@@ -1,0 +1,418 @@
+{
+	"info": {
+		"_postman_id": "b0a12d45-be5b-4c1e-b554-b94df02814a2",
+		"name": "APİ",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "10965155",
+		"_collection_link": "https://landau-app.postman.co/workspace/File-Managment-System~87a4e1ce-98b1-49ed-a509-8ab8c9473389/collection/10965155-b0a12d45-be5b-4c1e-b554-b94df02814a2?action=share&source=collection_link&creator=10965155"
+	},
+	"item": [
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "User Login APi",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"phone\": \"994554708786\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/api/user/login",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"user",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "User Verify Otp Api",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"otp\": \"0001\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/api/user/verify",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"user",
+								"verify"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "User Otp Reset APİ",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"phone\": \"994554708786\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/api/user/reset-otp",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"user",
+								"reset-otp"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "File",
+			"item": [
+				{
+					"name": "File Upload Api",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "type",
+									"value": "public",
+									"type": "text"
+								},
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/home/orxan/Pictures/Screenshots/Screenshot from 2024-09-11 10-54-00.png"
+								},
+								{
+									"key": "description",
+									"value": "Test1",
+									"type": "text"
+								},
+								{
+									"key": "hashtags",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "expiration_date",
+									"value": "2024-09-14",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/api/file/upload",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"file",
+								"upload"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "File List Api For All Users",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/api/files?hashtag=python",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"files"
+							],
+							"query": [
+								{
+									"key": "hashtag",
+									"value": "python"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "File Download Api",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/api/file/download/25",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"file",
+								"download",
+								"25"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "My File List Api",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BASE_URL}}/api/user/files",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"user",
+								"files"
+							],
+							"query": [
+								{
+									"key": "hashtag",
+									"value": "python",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "FIle Delete Api",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzI2MzAzNjQzLCJpYXQiOjE3MjYwMDM2NDMsImp0aSI6ImJkNzc5ZmEyMDc0NDRkY2VhZmZiYjM5YWM1ZjVjNzIwIiwidXNlcl9pZCI6MX0.fAuIKusdDkvDNo2wBpH0An2f0lV__PAZVE6g8LfzHzk",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BASE_URL}}/api/file/delete/1",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"file",
+								"delete",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "File Get Single Api",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/api/file/26",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"file",
+								"26"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "FIle Update Api",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "type",
+									"value": "public",
+									"type": "text"
+								},
+								{
+									"key": "file",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "Testttttttttt",
+									"type": "text"
+								},
+								{
+									"key": "hashtags",
+									"value": "3",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/api/file/update/24",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"file",
+								"update",
+								"24"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Comment",
+			"item": [
+				{
+					"name": "Comment Delete Api",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{other_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/api/comment/delete/4",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"comment",
+								"delete",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Comment Create Api",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{   \n    \"file_id\": 26,\n    \"content\": \"User 2 comment++++++++++++++++++++++++++++++2222222222222222222222222+++\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/api/comment/create",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"comment",
+								"create"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
